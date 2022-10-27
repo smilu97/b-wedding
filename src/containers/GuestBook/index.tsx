@@ -23,13 +23,13 @@ const Dummy = styled('div', {
   fontWeight: 'bold',
 });
 
-export default function Home() {
+export default function GuestBook() {
   return (
     <RootContainer>
-      <Dummy type={1}>Home</Dummy>
-      <Dummy type={2}>Home</Dummy>
-      <Dummy type={3}>Home</Dummy>
-      <Dummy type={4}>Home</Dummy>
+      <Dummy type={1}>GuestBook</Dummy>
+      <Dummy type={2}>GuestBook</Dummy>
+      <Dummy type={3}>GuestBook</Dummy>
+      <Dummy type={4}>GuestBook</Dummy>
     </RootContainer>
   );
 }
