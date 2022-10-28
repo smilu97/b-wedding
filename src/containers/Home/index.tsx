@@ -1,35 +1,25 @@
 import { styled } from '../../stitches';
 
+import FirstSection from './FirstSection';
+import SecondSection from './SecondSection';
+
 const RootContainer = styled('div', {
   display: 'flex',
   flexDirection: 'column',
+  width: '100%',
 });
 
-const Dummy = styled('div', {
-  height: '300px',
+const BlankSpace = styled('div', {
   width: '100%',
-  variants: {
-    type: {
-      1: { backgroundColor: '$primary150' },
-      2: { backgroundColor: '$primary200' },
-      3: { backgroundColor: '$primary300' },
-      4: { backgroundColor: '$primary400' },
-    },
-  },
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  fontSize: '32px',
-  fontWeight: 'bold',
+  height: '5rem',
 });
 
 export default function Home() {
   return (
     <RootContainer>
-      <Dummy type={1}>Home</Dummy>
-      <Dummy type={2}>Home</Dummy>
-      <Dummy type={3}>Home</Dummy>
-      <Dummy type={4}>Home</Dummy>
+      <FirstSection />
+      <BlankSpace />
+      <SecondSection />
     </RootContainer>
   );
 }

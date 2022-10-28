@@ -8,16 +8,19 @@ export const { styled, css, globalCss } = createStitches({
       primary200: '#AD9464',
       primary300: '#846428',
       primary400: '#483F32',
+      primary500: '#C1B4A1',
+      primary700: '#785A2E',
       baseBg: '$primary400',
       contentBg: '$primary100',
       divider: '#C1B4A1',
     },
     sizes: {
-      cw: '375px',
-      tabHeight: '100px',
+      mincw: '20rem',
+      cw: '48rem',
+      tabHeight: '6.25rem',
     },
     space: {
-      tabHeight: '100px',
+      tabHeight: '6.25rem',
     },
   },
 });
@@ -27,8 +30,16 @@ export const globalStyles = globalCss({
     margin: 0,
     padding: 0,
     fontFamily: "'Nanum Myeongjo', 'Nanum Square', serif",
+    fontSize: '16px',
   },
   body: {
+    minWidth: '$mincw',
     backgroundColor: '$baseBg',
+  },
+  html: {
+    minWidth: '$mincw',
+  },
+  '#root': {
+    minWidth: '$mincw',
   },
 });
