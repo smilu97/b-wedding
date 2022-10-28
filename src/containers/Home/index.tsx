@@ -2,6 +2,7 @@ import { styled } from '../../stitches';
 
 import FirstSection from './FirstSection';
 import SecondSection from './SecondSection';
+import ThirdSection from './ThirdSection';
 
 const RootContainer = styled('div', {
   display: 'flex',
@@ -20,6 +21,8 @@ export default function Home() {
       <FirstSection />
       <BlankSpace />
       <SecondSection />
+      <BlankSpace />
+      <ThirdSection />
     </RootContainer>
   );
 }

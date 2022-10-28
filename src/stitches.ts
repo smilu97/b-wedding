@@ -10,6 +10,7 @@ export const { styled, css, globalCss } = createStitches({
       primary400: '#483F32',
       primary500: '#C1B4A1',
       primary700: '#785A2E',
+      primary800: '#B5A79B',
       baseBg: '$primary400',
       contentBg: '$primary100',
       divider: '#C1B4A1',
