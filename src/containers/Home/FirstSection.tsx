@@ -99,6 +99,11 @@ const UnderBar = styled('div', {
 });
 
 export default function HomeFirstSection() {
+  const now = Date.now();
+  const dest = new Date(2023, 2, 25).getTime(); // 2023년 3월 25일
+  const unit = 1000 * 60 * 60 * 24; // days
+  const leftDay = Math.floor((now - dest) / unit);
+
   return (
     <SectionContainer>
       <DateDecoWrap>
@@ -119,8 +124,11 @@ export default function HomeFirstSection() {
           <NameText>박현정</NameText>
         </Row>
         <DDayTxt>
-          <Span>D-</Span>
-          <Span>160</Span>
+          <Span>
+            {leftDay < 0 ? `D${leftDay}` : ''}
+            {leftDay === 0 ? `D-day` : ''}
+            {leftDay > 0 ? `D+${leftDay}` : ''}
+          </Span>
         </DDayTxt>
         <MessageTxt>
           곧 하나가 될 두 사람의

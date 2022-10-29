@@ -23,6 +23,7 @@ export default function Home() {
       <SecondSection />
       <BlankSpace />
       <ThirdSection />
+      <BlankSpace />
     </RootContainer>
   );
 }
