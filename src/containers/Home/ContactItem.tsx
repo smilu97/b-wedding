@@ -3,6 +3,7 @@ import { styled } from '../../stitches';
 import PhoneIcon from '../../components/icons/PhoneIcon';
 import MessageIcon from '../../components/icons/MessageIcon';
 import CashIcon from '../../components/icons/CashIcon';
+import { Link } from 'react-router-dom';
 
 const ItemContainer = styled('div', {
   display: 'flex',
@@ -37,7 +38,7 @@ const IconWrap = styled('div', {
   alignItems: 'center',
 });
 
-const IconBox = styled('button', {
+const IconBox = styled('div', {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -52,7 +53,19 @@ const Image = styled('div', {
   height: '1.5rem',
 });
 
-export default function ContactItem({ positionTxt, nameTxt }: any) {
+type ContactItemProps = {
+  positionTxt: string;
+  nameTxt: string;
+  phoneNumber: string;
+  accountKey: string;
+};
+
+export default function ContactItem({
+  positionTxt,
+  nameTxt,
+  phoneNumber,
+  accountKey,
+}: ContactItemProps) {
   return (
     <ItemContainer>
       <NameWrap>
@@ -60,21 +73,27 @@ export default function ContactItem({ positionTxt, nameTxt }: any) {
         <NameTxt>{nameTxt}</NameTxt>
       </NameWrap>
       <IconWrap>
-        <IconBox>
-          <Image>
-            <PhoneIcon color="#483f32" />
-          </Image>
-        </IconBox>
-        <IconBox>
-          <Image>
-            <MessageIcon color="#483f32" />
-          </Image>
-        </IconBox>
-        <IconBox>
-          <Image>
-            <CashIcon color="#483f32" />
-          </Image>
-        </IconBox>
+        <a href={`tel:${phoneNumber}`}>
+          <IconBox>
+            <Image>
+              <PhoneIcon color="#483f32" />
+            </Image>
+          </IconBox>
+        </a>
+        <a href={`sms:${phoneNumber}`}>
+          <IconBox>
+            <Image>
+              <MessageIcon color="#483f32" />
+            </Image>
+          </IconBox>
+        </a>
+        <Link to={`/transfer/${accountKey}`}>
+          <IconBox>
+            <Image>
+              <CashIcon color="#483f32" />
+            </Image>
+          </IconBox>
+        </Link>
       </IconWrap>
     </ItemContainer>
   );

@@ -58,25 +58,55 @@ export default function HomeThirdSection() {
       <PageTitle>Contact us</PageTitle>
       <ContentWrap>
         <Column>
-          <ContactItem positionTxt="신랑" nameTxt="김영모" />
+          <ContactItem
+            positionTxt="신랑"
+            nameTxt="김영모"
+            phoneNumber="+82-10-6254-6927"
+            accountKey="김영모"
+          />
           <SubTitleWrap>
             <SubTitleTxt>신랑측 혼주</SubTitleTxt>
             <UnderBar />
           </SubTitleWrap>
-          <ContactItem positionTxt="아버지" nameTxt="김연석" />
+          <ContactItem
+            positionTxt="아버지"
+            nameTxt="김연석"
+            phoneNumber="+82-10-6254-6927"
+            accountKey="김연석"
+          />
           <BlankSpace type={2} />
-          <ContactItem positionTxt="어머니" nameTxt="최복하" />
+          <ContactItem
+            positionTxt="어머니"
+            nameTxt="최복하"
+            phoneNumber="+82-10-6254-6927"
+            accountKey="김연석"
+          />
         </Column>
         <BlankSpace type={1} />
         <Column>
-          <ContactItem positionTxt="신부" nameTxt="박현정" />
+          <ContactItem
+            positionTxt="신부"
+            nameTxt="박현정"
+            phoneNumber="+82-10-6254-6927"
+            accountKey="박현정"
+          />
           <SubTitleWrap>
             <SubTitleTxt>신랑측 혼주</SubTitleTxt>
             <UnderBar />
           </SubTitleWrap>
-          <ContactItem positionTxt="아버지" nameTxt="박윤교" />
+          <ContactItem
+            positionTxt="아버지"
+            nameTxt="박윤교"
+            phoneNumber="+82-10-6254-6927"
+            accountKey="박윤교"
+          />
           <BlankSpace type={2} />
-          <ContactItem positionTxt="어머니" nameTxt="고명옥" />
+          <ContactItem
+            positionTxt="어머니"
+            nameTxt="고명옥"
+            phoneNumber="+82-10-6254-6927"
+            accountKey="고명옥"
+          />
         </Column>
       </ContentWrap>
     </SectionContainer>

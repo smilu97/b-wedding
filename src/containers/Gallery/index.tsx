@@ -25,6 +25,13 @@ const GalleryWrap = styled('div', {
   overflowY: 'hidden',
   whiteSpace: 'nowrap',
   backgroundColor: 'red',
+
+  '-ms-overflow-style': 'none' /* IE and Edge */,
+  'scrollbar-width': 'none' /* Firefox */,
+
+  '&::-webkit-scrollbar': {
+    display: 'none',
+  },
 });
 
 const ImageWrap = styled('div', {
