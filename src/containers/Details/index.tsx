@@ -53,7 +53,7 @@ const MapWrapper = styled('div', {
 const Map = styled('div', {
   marginBottom: '2rem',
   width: '100%',
-  height: '30vh',
+  height: '40vh',
   backgroundColor: '$primary500',
   overflow: 'hidden',
 });
