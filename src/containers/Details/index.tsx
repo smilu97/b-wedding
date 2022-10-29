@@ -5,6 +5,7 @@ import InfoItem from './InformationItem';
 
 import NaverMapIcon from '../../components/icons/NaverMapIcon';
 import KakaoMapIcon from '../../components/icons/KakaoMapIcon';
+import { Map, MapMarker } from 'react-kakao-maps-sdk';
 
 const RootContainer = styled('div', {
   display: 'flex',
@@ -50,7 +51,7 @@ const MapWrapper = styled('div', {
   width: '100%',
 });
 
-const Map = styled('div', {
+const MapContainer = styled('div', {
   marginBottom: '2rem',
   width: '100%',
   height: '40vh',
@@ -94,6 +95,8 @@ const ButtonText = styled('p', {
 });
 
 export default function Details() {
+  const mapCenter = { lat: 37.5131786, lng: 127.0314855 };
+
   return (
     <RootContainer>
       <PageTitle>Details</PageTitle>
@@ -112,7 +115,11 @@ export default function Details() {
           </Row>
         </WidthLimitWrap>
         <MapWrapper>
-          <Map />
+          <MapContainer>
+            <Map center={mapCenter} style={{ width: '100%', height: '100%' }}>
+              <MapMarker position={mapCenter} />
+            </Map>
+          </MapContainer>
           <Row type={2}>
             <Button type={1}>
               <ButtonIcon>
