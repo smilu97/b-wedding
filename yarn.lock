@@ -369,7 +369,7 @@ ansi-styles@^3.2.1:
 
 apisauce@^2.1.6:
   version "2.1.6"
-  resolved "https://registry.npmjs.org/apisauce/-/apisauce-2.1.6.tgz"
+  resolved "https://registry.yarnpkg.com/apisauce/-/apisauce-2.1.6.tgz#94887f335bf3d735305fc895c8a191c9c2608a7f"
   integrity sha512-MdxR391op/FucS2YQRfB/NMRyCnHEPDd4h17LRIuVYi0BpGmMhpxc0shbOpfs5ahABuBEffNCGal5EcsydbBWg==
   dependencies:
     axios "^0.21.4"
