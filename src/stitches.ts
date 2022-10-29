@@ -35,7 +35,7 @@ export const globalStyles = globalCss({
   },
   body: {
     minWidth: '$mincw',
-    backgroundColor: '$baseBg',
+    backgroundColor: '#F2EEE8',
   },
   html: {
     minWidth: '$mincw',
