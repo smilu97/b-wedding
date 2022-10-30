@@ -4,3 +4,4 @@ export { default as GuestBook } from './GuestBook';
 export { default as Home } from './Home';
 export { default as TabNav } from './TabNav';
 export { default as Transfer } from './Transfer';
+export { default as Writing } from './Writing';

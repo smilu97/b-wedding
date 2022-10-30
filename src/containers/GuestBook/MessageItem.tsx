@@ -1,6 +1,9 @@
 import { styled } from '../../stitches';
 
 import DeleteIcon from '../../components/icons/DeleteIcon';
+import { Comment } from '../../guestbook';
+import { useCallback } from 'react';
+import { Link } from 'react-router-dom';
 
 const MessageContainer = styled('div', {
   display: 'flex',
@@ -65,19 +68,42 @@ const DateText = styled('p', {
   color: '#9B9485',
 });
 
-export default function MessageItem({ guestName, message }: any) {
+type MessageItemProps = {
+  comment: Comment;
+};
+
+function formatTimestamp(timestamp: number, long = true) {
+  const d = new Date(timestamp);
+  const year = d.getFullYear();
+  const month = d.getMonth() + 1;
+  const date = d.getDate();
+  const hours = d.getHours().toString().padStart(2, '0');
+  const minutes = d.getMinutes().toString().padStart(2, '0');
+  if (long) {
+    return `${year}년 ${month}월 ${date}일 ${hours}:${minutes}`;
+  } else {
+    return `${year}년 ${month}월 ${date}일`;
+  }
+}
+
+export default function MessageItem({ comment }: MessageItemProps) {
+  const { nickname, message, timestamp } = comment;
+  const dateString = formatTimestamp(timestamp, true);
+
   return (
     <MessageContainer>
       <UserImage />
       <UserInfoWrap>
         <InfoHeader>
-          <GuestName>{guestName}</GuestName>
-          <DeleteButton>
-            <DeleteIcon />
-          </DeleteButton>
+          <GuestName>{nickname}</GuestName>
+          <Link to={`/guestbook/delete/${comment.id}`}>
+            <DeleteButton>
+              <DeleteIcon />
+            </DeleteButton>
+          </Link>
         </InfoHeader>
         <MessageText>{message}</MessageText>
-        <DateText>2023년 3월 22일</DateText>
+        <DateText>{dateString}</DateText>
       </UserInfoWrap>
     </MessageContainer>
   );

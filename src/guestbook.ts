@@ -7,6 +7,7 @@ const api = create({
 
 export type Comment = {
   id: number;
+  timestamp: number;
   nickname: string;
   message: string;
   willAttend: boolean;
@@ -33,7 +34,8 @@ function validateCommentType(comment: Object) {
     comment.hasOwnProperty('nickname') &&
     comment.hasOwnProperty('message') &&
     comment.hasOwnProperty('willAttend') &&
-    comment.hasOwnProperty('password')
+    comment.hasOwnProperty('password') &&
+    comment.hasOwnProperty('timestamp')
   );
 }
 
@@ -41,34 +43,37 @@ const cacheHolder: { cache: Comment[] } = proxy({
   cache: [],
 });
 
-async function updateCache() {
+async function update() {
   cacheHolder.cache = await load();
   return cacheHolder.cache;
 }
 
-updateCache().then(() => {});
-setInterval(updateCache, 3000);
+update().then(() => {});
+setInterval(update, 3000);
 
 async function load(): Promise<Comment[]> {
   const comments = (await (
     await api.get('/guestbook/comments')
   ).data) as Comment[];
 
-  return comments.filter(validateCommentType);
+  return comments
+    .filter(validateCommentType)
+    .sort((a, b) => b.timestamp - a.timestamp);
 }
 
 async function add(item: Comment) {
-  return await api.post('/guestbook/comments', {
+  await api.post('/guestbook/comments', {
     ...item,
     password: await hashPassword(item.password),
   });
+  await update();
 }
 
 async function del(comment: Comment, password: string) {
-  if ((await hashPassword(password)) !== comment.password) {
-    return undefined;
+  if ((await hashPassword(password)) === comment.password) {
+    await api.delete(`/guestbook/comments/${comment.id}`);
   }
-  return await api.delete(`/guestbook/comments/${comment.id}`);
+  await update();
 }
 
 export default function useGuestBook(): [

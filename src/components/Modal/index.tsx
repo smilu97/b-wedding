@@ -22,6 +22,7 @@ const ContentContainer = styled('div', {
   backgroundColor: 'white',
   borderRadius: '1.5rem',
   boxShadow: '0px 4px 32px rgba(0, 0, 0, 0.24)',
+  zIndex: 6,
 });
 
 type ModalProps = {
@@ -37,7 +38,9 @@ export default function Modal({ children }: ModalProps) {
 
   return (
     <RootContainer onClick={exit}>
-      <ContentContainer>{children}</ContentContainer>
+      <ContentContainer onClick={(e) => e.stopPropagation()}>
+        {children}
+      </ContentContainer>
     </RootContainer>
   );
 }

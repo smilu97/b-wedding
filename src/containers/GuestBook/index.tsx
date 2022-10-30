@@ -3,8 +3,9 @@ import { styled } from '../../stitches';
 import PageTitle from '../../components/PageTitle';
 import MessageItem from './MessageItem';
 import Pagination from './Pagination';
-import useGuestBook, { Comment } from '../../guestbook';
+import useGuestBook from '../../guestbook';
 import { useCallback, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const RootContainer = styled('div', {
   display: 'flex',
@@ -57,8 +58,7 @@ function usePaginate<T>(
 }
 
 export default function GuestBook() {
-  const [allComments, addComment, delComment] = useGuestBook();
-
+  const [allComments] = useGuestBook();
   const [comments, page, maxPage, goto] = usePaginate(allComments, 3);
 
   return (
@@ -67,11 +67,7 @@ export default function GuestBook() {
       <HostMessage>신랑신부에게 축하의 메시지를 남겨주세요</HostMessage>
       <MessageWrap>
         {comments.map((comment) => (
-          <MessageItem
-            key={comment.id}
-            guestName={comment.nickname}
-            message={comment.message}
-          />
+          <MessageItem key={comment.id} comment={comment} />
         ))}
       </MessageWrap>
       <Pagination
@@ -80,6 +76,17 @@ export default function GuestBook() {
         onNavigate={goto}
         batchSize={7}
       />
+      <Link to="/guestbook/writing">
+        <button
+          style={{
+            position: 'fixed',
+            bottom: '10rem',
+            right: '10rem',
+          }}
+        >
+          방명록 작성
+        </button>
+      </Link>
     </RootContainer>
   );
 }

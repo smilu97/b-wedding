@@ -15,8 +15,10 @@ import {
   GuestBook,
   Details,
   Transfer,
+  Writing,
 } from './containers';
 import Modal from './components/Modal';
+import DeleteComment from './containers/DeleteComment';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -31,7 +33,7 @@ const router = createBrowserRouter(
         }
       >
         <Route
-          path="/transfer/:accountKey"
+          path="transfer/:accountKey"
           element={
             <Modal>
               <Transfer />
@@ -39,9 +41,27 @@ const router = createBrowserRouter(
           }
         />
       </Route>
-      <Route path="/gallery" element={<Gallery />} />
-      <Route path="/guestbook" element={<GuestBook />} />
-      <Route path="/details" element={<Details />} />
+      <Route path="gallery" element={<Gallery />} />
+      <Route
+        path="guestbook"
+        element={
+          <>
+            <GuestBook />
+            <Outlet />
+          </>
+        }
+      >
+        <Route
+          path="delete/:id"
+          element={
+            <Modal>
+              <DeleteComment />
+            </Modal>
+          }
+        />
+      </Route>
+      <Route path="guestbook/writing" element={<Writing />} />
+      <Route path="details" element={<Details />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Route>
   )
