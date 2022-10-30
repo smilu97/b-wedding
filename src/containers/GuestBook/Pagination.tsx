@@ -2,6 +2,7 @@ import { styled } from '../../stitches';
 
 import LeftIcon from '../../components/icons/LeftIcon';
 import RightIcon from '../../components/icons/RightIcon';
+import { useCallback } from 'react';
 
 const PaginationContainer = styled('div', {
   display: 'flex',
@@ -40,30 +41,56 @@ const NumText = styled('p', {
   fontFamily: 'Nanum Square',
 });
 
-export default function Pagination() {
+type PaginationProps = {
+  page: number;
+  maxPage: number;
+  onNavigate: (dst: number) => any;
+  batchSize: number;
+};
+
+function range(begin: number, end: number) {
+  const r = [];
+  for (let i = begin; i < end; i += 1) {
+    r.push(i);
+  }
+  return r;
+}
+
+export default function Pagination({
+  page,
+  maxPage,
+  onNavigate,
+  batchSize,
+}: PaginationProps) {
+  const beginPage = Math.max(1, page - Math.floor((batchSize - 1) / 2));
+  const endPage = Math.min(maxPage, beginPage + batchSize) + 1;
+  const pages = range(beginPage, endPage);
+
+  const left = useCallback(() => {
+    onNavigate(page - 1);
+  }, [onNavigate, page]);
+
+  const right = useCallback(() => {
+    onNavigate(page + 1);
+  }, [onNavigate, page]);
+
   return (
     <PaginationContainer>
-      <ButtonBox type={1}>
+      <ButtonBox onClick={left} type={1}>
         <LeftIcon />
       </ButtonBox>
       <NumButtonWrap>
-        <ButtonBox type={1}>
-          <NumText>1</NumText>
-        </ButtonBox>
-        <ButtonBox type={2}>
-          <NumText>2</NumText>
-        </ButtonBox>
-        <ButtonBox type={2}>
-          <NumText>3</NumText>
-        </ButtonBox>
-        <ButtonBox type={2}>
-          <NumText>4</NumText>
-        </ButtonBox>
-        <ButtonBox type={2}>
-          <NumText>5</NumText>
-        </ButtonBox>
+        {pages.map((p) => (
+          <ButtonBox
+            key={p}
+            onClick={() => onNavigate(p)}
+            type={p === page ? 1 : 2}
+          >
+            <NumText>{p}</NumText>
+          </ButtonBox>
+        ))}
       </NumButtonWrap>
-      <ButtonBox type={1}>
+      <ButtonBox onClick={right} type={1}>
         <RightIcon />
       </ButtonBox>
     </PaginationContainer>
