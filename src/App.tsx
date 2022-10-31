@@ -35,7 +35,7 @@ const router = createBrowserRouter(
         <Route
           path="transfer/:accountKey"
           element={
-            <Modal>
+            <Modal modalTitle="마음 전달하기">
               <Transfer />
             </Modal>
           }
@@ -54,7 +54,7 @@ const router = createBrowserRouter(
         <Route
           path="delete/:id"
           element={
-            <Modal>
+            <Modal modalTitle="방명록 삭제">
               <DeleteComment />
             </Modal>
           }

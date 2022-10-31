@@ -23,7 +23,7 @@ const ContentsWrap = styled('div', {
 });
 
 const WidthLimitWrap = styled('div', {
-  padding: '0 2rem',
+  padding: '0 1.5rem',
   width: '100%',
   maxWidth: '30rem',
   boxSizing: 'border-box',

@@ -33,6 +33,38 @@ const MessageWrap = styled('div', {
   minHeight: '22.5rem',
 });
 
+const ButtonWrap = styled('div', {
+  position: 'fixed',
+  bottom: '100px',
+  left: '0',
+  right: '0',
+  margin: 'auto',
+  padding: '0.75rem',
+  width: '100%',
+  boxSizing: 'border-box',
+});
+
+const ButtonBox = styled('div', {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  margin: 'auto',
+  width: '100%',
+  maxWidth: '47rem',
+  height: '3rem',
+  borderRadius: '1rem',
+  backgroundColor: '$primary400',
+  boxSizing: 'border-box',
+});
+
+const ButtonText = styled('p', {
+  fontSize: '0.875rem',
+  fontWeight: '400',
+  fontFamily: 'Nanum Square',
+  letterSpacing: '0.1rem',
+  color: '#ffffff',
+});
+
 function usePaginate<T>(
   items: readonly T[],
   pageSize: number
@@ -76,17 +108,13 @@ export default function GuestBook() {
         onNavigate={goto}
         batchSize={7}
       />
-      <Link to="/guestbook/writing">
-        <button
-          style={{
-            position: 'fixed',
-            bottom: '10rem',
-            right: '10rem',
-          }}
-        >
-          방명록 작성
-        </button>
-      </Link>
+      <ButtonWrap>
+        <Link to="/guestbook/writing">
+          <ButtonBox>
+            <ButtonText>방명록 작성</ButtonText>
+          </ButtonBox>
+        </Link>
+      </ButtonWrap>
     </RootContainer>
   );
 }
