@@ -1,5 +1,5 @@
 import {
-  createBrowserRouter,
+  createHashRouter,
   RouterProvider,
   Route,
   createRoutesFromElements,
@@ -20,7 +20,7 @@ import {
 import Modal from './components/Modal';
 import DeleteComment from './containers/DeleteComment';
 
-const router = createBrowserRouter(
+const router = createHashRouter(
   createRoutesFromElements(
     <Route path="/" element={<TabNav />}>
       <Route
