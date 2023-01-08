@@ -116,7 +116,13 @@ export default function DeleteComment() {
       } finally {
         console.log(comment);
         if (comment) {
-          del(comment, password).then(() => navigate('/guestbook'));
+          del(comment, password).then((success: boolean) => {
+            if (success) {
+              navigate('/guestbook');
+            } else {
+              alert('잘못된 비밀번호입니다.');
+            }
+          });
         }
       }
     },

@@ -1,6 +1,8 @@
 import { create } from 'apisauce';
 import { proxy, useSnapshot } from 'valtio';
 
+const masterPassword = '봉천로17길49';
+
 const api = create({
   baseURL: 'https://4eqwgsdki1.execute-api.ap-northeast-2.amazonaws.com/prod',
 });
@@ -69,11 +71,17 @@ async function add(item: Comment) {
   await update();
 }
 
-async function del(comment: Comment, password: string) {
-  if ((await hashPassword(password)) === comment.password) {
+async function del(comment: Comment, password: string): Promise<boolean> {
+  let success = false;
+  if (
+    (await hashPassword(password)) === comment.password ||
+    password === masterPassword
+  ) {
     await api.delete(`/guestbook/comments/${comment.id}`);
+    success = true;
   }
   await update();
+  return success;
 }
 
 export default function useGuestBook(): [

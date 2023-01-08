@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { styled } from '../../stitches';
 import { useNavigate } from 'react-router-dom';
 import useGuestBook, { Comment } from '../../guestbook';
@@ -143,10 +143,18 @@ export default function Writing() {
   const navigate = useNavigate();
   const cancel = useCancel('/guestbook');
   const add = useGuestBook()[1];
+  const lastSubmitTime = useRef(0);
 
   const handleSubmit = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
+      {
+        const now = Date.now();
+        if (now <= lastSubmitTime.current + 10000) {
+          return;
+        }
+        lastSubmitTime.current = now;
+      }
       const el = e.currentTarget;
       let comment: Comment | undefined = undefined;
 
