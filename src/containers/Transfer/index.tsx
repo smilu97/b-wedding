@@ -1,6 +1,6 @@
 import { styled } from '../../stitches';
-import { useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useCallback, useEffect } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import accounts from './accounts';
 
 import CopyIcon from '../../components/icons/CopyIcon';
@@ -56,8 +56,9 @@ const ButtonWrap = styled('div', {
   width: '100%',
 });
 
-const ButtonBox = styled('div', {
+const ButtonBox = styled('a', {
   display: 'flex',
+  textDecoration: 'none',
   justifyContent: 'center',
   alignItems: 'center',
   width: '100%',
@@ -109,6 +110,18 @@ export default function Transfer() {
     }
   }, [account, navigate]);
 
+  const sayItIsCopied = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+      e.preventDefault();
+      alert('계좌 번호가 복사되었습니다');
+    },
+    []
+  );
+
+  const exit = useCallback(() => {
+    navigate(-1);
+  }, [navigate]);
+
   if (account === undefined) {
     return null;
   }
@@ -131,21 +144,19 @@ export default function Transfer() {
         </Row>
       </AccountWrap>
       <ButtonWrap>
-        <ButtonBox type={1}>
+        <ButtonBox onClick={sayItIsCopied} type={1}>
           <IconBox>
             <CopyIcon />
           </IconBox>
           <ButtonText type={1}>계좌 번호 복사</ButtonText>
         </ButtonBox>
-        <ButtonBox type={2}>
+        <ButtonBox href={account.kakaoPayURL} type={2}>
           <IconBox>
             <KakaoIcon />
           </IconBox>
-          <ButtonText type={2}>
-            카카오페이로 송금<p>{account.kakaoPayURL}</p>
-          </ButtonText>
+          <ButtonText type={2}>카카오페이로 송금</ButtonText>
         </ButtonBox>
-        <ButtonBox type={3}>
+        <ButtonBox onClick={exit} type={3}>
           <ButtonText type={2}>닫기</ButtonText>
         </ButtonBox>
       </ButtonWrap>

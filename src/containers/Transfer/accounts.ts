@@ -6,7 +6,7 @@ const accounts: { [key: string]: BankAccountDetail } = {
     nickname: '김영모',
     bankName: '우리은행',
     accountNumber: '110-646-390201',
-    kakaoPayURL: 'https://www.naver.com/',
+    kakaoPayURL: 'https://qr.kakaopay.com/FT28CafBl',
   },
   박현정: {
     role: '신부 ',
