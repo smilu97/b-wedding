@@ -121,13 +121,23 @@ export default function Details() {
             </Map>
           </MapContainer>
           <Row type={2}>
-            <Button type={1}>
+            <Button
+              onClick={() => {
+                window.location.href = 'https://naver.me/GQ4YNZx8';
+              }}
+              type={1}
+            >
               <ButtonIcon>
                 <NaverMapIcon></NaverMapIcon>
               </ButtonIcon>
               <ButtonText type={1}>네이버 지도</ButtonText>
             </Button>
-            <Button type={2}>
+            <Button
+              onClick={() => {
+                window.location.href = 'http://kko.to/pUC7-RJmnr';
+              }}
+              type={2}
+            >
               <ButtonIcon>
                 <KakaoMapIcon></KakaoMapIcon>
               </ButtonIcon>

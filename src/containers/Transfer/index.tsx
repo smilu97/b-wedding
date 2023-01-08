@@ -96,7 +96,7 @@ export type BankAccountDetail = {
   nickname: string;
   bankName: string;
   accountNumber: string;
-  kakaoPayURL: string;
+  kakaoPayURL?: string;
 };
 
 export default function Transfer() {
@@ -150,12 +150,14 @@ export default function Transfer() {
           </IconBox>
           <ButtonText type={1}>계좌 번호 복사</ButtonText>
         </ButtonBox>
-        <ButtonBox href={account.kakaoPayURL} type={2}>
-          <IconBox>
-            <KakaoIcon />
-          </IconBox>
-          <ButtonText type={2}>카카오페이로 송금</ButtonText>
-        </ButtonBox>
+        {account.kakaoPayURL ? (
+          <ButtonBox href={account.kakaoPayURL} type={2}>
+            <IconBox>
+              <KakaoIcon />
+            </IconBox>
+            <ButtonText type={2}>카카오페이로 송금</ButtonText>
+          </ButtonBox>
+        ) : null}
         <ButtonBox onClick={exit} type={3}>
           <ButtonText type={2}>닫기</ButtonText>
         </ButtonBox>

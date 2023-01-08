@@ -71,14 +71,14 @@ export default function HomeThirdSection() {
           <ContactItem
             positionTxt="아버지"
             nameTxt="김연석"
-            phoneNumber="+82-10-6254-6927"
+            phoneNumber="+82-10-3786-5839"
             accountKey="김연석"
           />
           <BlankSpace type={2} />
           <ContactItem
             positionTxt="어머니"
             nameTxt="최복하"
-            phoneNumber="+82-10-6254-6927"
+            phoneNumber="+82-10-5581-6927"
             accountKey="김연석"
           />
         </Column>
@@ -87,7 +87,7 @@ export default function HomeThirdSection() {
           <ContactItem
             positionTxt="신부"
             nameTxt="박현정"
-            phoneNumber="+82-10-6254-6927"
+            phoneNumber="+82-10-8896-8534"
             accountKey="박현정"
           />
           <SubTitleWrap>
