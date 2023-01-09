@@ -11,14 +11,18 @@
   "dependencies": {
     "@stitches/react": "^1.2.8",
     "apisauce": "^2.1.6",
+    "fslightbox-react": "^1.6.2-2",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-kakao-maps-sdk": "^1.1.5",
     "react-router-dom": "^6.4.2",
+    "styled-components": "^5.3.6",
     "valtio": "^1.7.5",
     "vite-plugin-fonts": "^0.6.0"
   },
   "devDependencies": {
+    "@types/fslightbox-react": "^1.4.2",
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
     "@vitejs/plugin-react": "^2.2.0",

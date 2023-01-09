@@ -43,4 +43,7 @@ export const globalStyles = globalCss({
   '#root': {
     minWidth: '$mincw',
   },
+  '.galleryImg:nth-child(2n)': {
+    marginRight: '0',
+  },
 });

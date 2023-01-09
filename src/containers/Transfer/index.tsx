@@ -64,11 +64,12 @@ const ButtonBox = styled('a', {
   width: '100%',
   height: '3rem',
   borderRadius: '1rem',
+  cursor: 'pointer',
   variants: {
     type: {
       1: { backgroundColor: '$primary400', marginBottom: '8px' },
-      2: { backgroundColor: '#F5E11E', marginBottom: '40px' },
-      3: { backgroundColor: '$primary150' },
+      2: { backgroundColor: '#F5E11E', marginBottom: '0' },
+      3: { backgroundColor: '$primary150', marginTop: '40px' },
     },
   },
 });

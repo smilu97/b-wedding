@@ -34,10 +34,6 @@ const MessageWrap = styled('div', {
 });
 
 const ButtonWrap = styled('div', {
-  position: 'fixed',
-  bottom: '100px',
-  left: '0',
-  right: '0',
   margin: 'auto',
   padding: '0.75rem',
   width: '100%',
@@ -50,7 +46,7 @@ const ButtonBox = styled('div', {
   alignItems: 'center',
   margin: 'auto',
   width: '100%',
-  maxWidth: '47rem',
+  maxWidth: '20rem',
   height: '3rem',
   borderRadius: '1rem',
   backgroundColor: '$primary400',
@@ -97,6 +93,13 @@ export default function GuestBook() {
     <RootContainer>
       <PageTitle>Guest Book</PageTitle>
       <HostMessage>신랑신부에게 축하의 메시지를 남겨주세요</HostMessage>
+      <ButtonWrap>
+        <Link to="/guestbook/writing">
+          <ButtonBox>
+            <ButtonText>방명록 작성</ButtonText>
+          </ButtonBox>
+        </Link>
+      </ButtonWrap>
       <MessageWrap>
         {comments.map((comment) => (
           <MessageItem key={comment.id} comment={comment} />
@@ -108,13 +111,6 @@ export default function GuestBook() {
         onNavigate={goto}
         batchSize={7}
       />
-      <ButtonWrap>
-        <Link to="/guestbook/writing">
-          <ButtonBox>
-            <ButtonText>방명록 작성</ButtonText>
-          </ButtonBox>
-        </Link>
-      </ButtonWrap>
     </RootContainer>
   );
 }

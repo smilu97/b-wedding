@@ -14,12 +14,18 @@ const MessageWrap = styled('div', {
 });
 
 const InvitationMessage = styled('p', {
-  fontSize: '0.875rem',
+  fontSize: '0.8rem',
   fontWeight: '600',
   color: '$primary400',
-  lineHeight: '1.75',
+  lineHeight: '2.2',
   letterSpacing: '0.2rem',
   textAlign: 'center',
+});
+
+const MessageDetail = styled('p', {
+  margin: '1rem 0 2rem 0',
+  fontSize: '0.6rem',
+  color: '$primary300',
 });
 
 const NameWrap = styled('div', {
@@ -38,14 +44,14 @@ const BlankSpace = styled('div', {
 });
 
 const NameTxt = styled('p', {
-  fontSize: '0.875rem',
+  fontSize: '0.8rem',
   fontWeight: '800',
   color: '$primary200',
   letterSpacing: '0.1rem',
 });
 
 const Dot = styled('div', {
-  margin: '0 0.5rem',
+  margin: '0 0.3rem',
   width: '0.125rem',
   height: '0.125rem',
   borderRadius: '0.0625rem',
@@ -53,12 +59,12 @@ const Dot = styled('div', {
 });
 
 const ConnectTxt = styled('p', {
-  margin: '0 1rem',
+  margin: '0 0.8rem',
   width: '2.5rem',
   fontSize: '0.625rem',
   fontWeight: '600',
   color: '$primary200',
-  letterSpacing: '0.1rem',
+  letterSpacing: '0.05rem',
 });
 
 export default function HomeSecondSection() {
@@ -71,20 +77,17 @@ export default function HomeSecondSection() {
       </PageTitle>
       <MessageWrap>
         <InvitationMessage>
-          동해물과 백두산이
+          예쁜 예감이 들었다.
           <br />
-          마르고 닳도록
+          우리는 언제나 손을 잡고 있게 될 것이다.
           <br />
-          하느님이 보우하사
+          <MessageDetail>-이이체 '연인'-</MessageDetail>
+          아주 작은 인연이 저희를 인연으로 만들었고
           <br />
-          우리나라 만세
+          오늘, 그 인연으로 저희가 하나가 됩니다.
           <br />
-          <br />
-          무궁화 삼천리 화려강산
-          <br />
-          대한사람 대한으로
-          <br />
-          길이 보전하세
+          귀한 걸음으로 축복해 주시면
+          <br />더 없는 기쁨으로 간직하겠습니다.
         </InvitationMessage>
       </MessageWrap>
       <NameWrap>

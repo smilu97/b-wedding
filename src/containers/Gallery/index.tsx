@@ -1,6 +1,9 @@
 import { styled } from '../../stitches';
-
+import LightBox from 'fslightbox-react';
 import PageTitle from '../../components/PageTitle';
+
+import GalleryImg1 from '../../assets/gallery/gallery_1.jpg';
+import { useState } from 'react';
 
 const RootContainer = styled('div', {
   display: 'flex',
@@ -18,49 +21,62 @@ const HostMessage = styled('p', {
 });
 
 const GalleryWrap = styled('div', {
-  display: 'block',
-  width: '100%',
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'space-betweeen',
+  alignItems: 'flex-start',
+  width: '20rem',
   height: 'auto',
-  overflowX: 'auto',
-  overflowY: 'hidden',
-  whiteSpace: 'nowrap',
-  backgroundColor: 'red',
-
-  '-ms-overflow-style': 'none' /* IE and Edge */,
-  'scrollbar-width': 'none' /* Firefox */,
-
-  '&::-webkit-scrollbar': {
-    display: 'none',
-  },
 });
 
 const ImageWrap = styled('div', {
-  marginLeft: '1rem',
-  display: 'inline-flex',
-  alignItems: 'center',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'flex-start',
   justifyContent: 'center',
-  width: '15rem',
-  height: '25rem',
+  marginRight: '1.5rem',
+  marginBottom: '1.5rem',
+  width: 'calc(50% -  0.75rem)',
+  height: '13.875rem',
   verticalAlign: 'top',
   overflow: 'hidden',
-  borderRadius: '2rem',
-  backgroundColor: 'green',
+  borderRadius: '1.5rem',
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  '&:nth-child(2n)': {
+    marginRight: '0',
+  },
 });
 
+const images = [GalleryImg1, GalleryImg1, GalleryImg1, GalleryImg1];
+const imagesWithId: [string, number][] = images
+  .map((s) => `url("${s}")`)
+  .map((s, i) => [s, i]);
+
 export default function GuestBook() {
+  const [toggler, setToggler] = useState(false);
+  const [index, setIndex] = useState(0);
+
+  const openImageBox = (id: number) => {
+    setIndex(id);
+    setToggler(!toggler);
+  };
+
   return (
     <RootContainer>
       <PageTitle>Gallery</PageTitle>
       <HostMessage>2023년 3월 25일</HostMessage>
-      <GalleryWrap className="galleryWrap">
-        <ImageWrap />
-        <ImageWrap />
-        <ImageWrap />
-        <ImageWrap />
-        <ImageWrap />
-        <ImageWrap />
-        <ImageWrap />
+      <GalleryWrap>
+        {imagesWithId.map(([backgroundImage, id]) => (
+          <ImageWrap
+            key={id}
+            onClick={() => openImageBox(id)}
+            style={{ backgroundImage }}
+          />
+        ))}
       </GalleryWrap>
+      <LightBox toggler={toggler} sources={images} sourceIndex={index} />
     </RootContainer>
   );
 }
