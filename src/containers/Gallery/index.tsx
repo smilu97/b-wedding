@@ -1,5 +1,4 @@
 import { styled } from '../../stitches';
-import LightBox from 'fslightbox-react';
 import PageTitle from '../../components/PageTitle';
 
 import GalleryImg1 from '../../assets/gallery/gallery_1.jpg';
@@ -54,7 +53,8 @@ const imagesWithId: [string, number][] = images
   .map((s) => `url("${s}")`)
   .map((s, i) => [s, i]);
 
-export default function GuestBook() {
+export default function Gallery() {
+  console.log('image:', images[0]);
   const [toggler, setToggler] = useState(false);
   const [index, setIndex] = useState(0);
 
@@ -76,7 +76,19 @@ export default function GuestBook() {
           />
         ))}
       </GalleryWrap>
-      <LightBox toggler={toggler} sources={images} sourceIndex={index} />
+      <MyLightbox toggler={toggler} sources={images} sourceIndex={index} />
     </RootContainer>
   );
+}
+
+function MyLightbox({
+  toggler,
+  sources,
+  sourceIndex,
+}: {
+  toggler: boolean;
+  sources: string[];
+  sourceIndex: number;
+}) {
+  return <div>포기 포기</div>;
 }
