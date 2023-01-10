@@ -1,8 +1,6 @@
 import { styled } from '../../stitches';
 import PageTitle from '../../components/PageTitle';
-
-import GalleryImg1 from '../../assets/gallery/gallery_1.jpg';
-import { useState } from 'react';
+import { galleryImagesWithId } from './images';
 
 const RootContainer = styled('div', {
   display: 'flex',
@@ -48,47 +46,16 @@ const ImageWrap = styled('div', {
   },
 });
 
-const images = [GalleryImg1, GalleryImg1, GalleryImg1, GalleryImg1];
-const imagesWithId: [string, number][] = images
-  .map((s) => `url("${s}")`)
-  .map((s, i) => [s, i]);
-
 export default function Gallery() {
-  console.log('image:', images[0]);
-  const [toggler, setToggler] = useState(false);
-  const [index, setIndex] = useState(0);
-
-  const openImageBox = (id: number) => {
-    setIndex(id);
-    setToggler(!toggler);
-  };
-
   return (
     <RootContainer>
       <PageTitle>Gallery</PageTitle>
       <HostMessage>2023년 3월 25일</HostMessage>
       <GalleryWrap>
-        {imagesWithId.map(([backgroundImage, id]) => (
-          <ImageWrap
-            key={id}
-            onClick={() => openImageBox(id)}
-            style={{ backgroundImage }}
-          />
+        {galleryImagesWithId.map(([backgroundImage, id]) => (
+          <ImageWrap key={id} style={{ backgroundImage }} />
         ))}
       </GalleryWrap>
-      <MyLightbox toggler={toggler} sources={images} sourceIndex={index} />
     </RootContainer>
   );
-}
-
-function MyLightbox({
-  toggler,
-  sources,
-  sourceIndex,
-}: {
-  toggler: boolean;
-  sources: string[];
-  sourceIndex: number;
-}) {
-  return <div>포기 포기</div>;
 }

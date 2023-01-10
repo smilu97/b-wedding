@@ -136,7 +136,7 @@ export default function DeleteComment() {
         <form onSubmit={submit}>
           <InputWrap>
             <InputTitle>게시물 비밀번호</InputTitle>
-            <InputBox name="password" />
+            <InputBox type="password" name="password" />
           </InputWrap>
           <ButtonWrap>
             <Button type="submit" value="취소" bg={2} onClick={cancel} />

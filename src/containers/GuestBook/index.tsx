@@ -34,7 +34,7 @@ const MessageWrap = styled('div', {
 });
 
 const ButtonWrap = styled('div', {
-  margin: 'auto',
+  margin: '0 auto 1.5rem auto',
   padding: '0.75rem',
   width: '100%',
   boxSizing: 'border-box',
@@ -94,7 +94,7 @@ export default function GuestBook() {
       <PageTitle>Guest Book</PageTitle>
       <HostMessage>신랑신부에게 축하의 메시지를 남겨주세요</HostMessage>
       <ButtonWrap>
-        <Link to="/guestbook/writing">
+        <Link to="/guestbook/writing" style={{ textDecoration: 'none' }}>
           <ButtonBox>
             <ButtonText>방명록 작성</ButtonText>
           </ButtonBox>
