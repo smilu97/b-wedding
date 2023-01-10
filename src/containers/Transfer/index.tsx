@@ -114,9 +114,11 @@ export default function Transfer() {
   const sayItIsCopied = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
       e.preventDefault();
-      alert('계좌 번호가 복사되었습니다');
+      window.navigator.clipboard.writeText(account!.accountNumber).then(() => {
+        alert('계좌 번호가 복사되었습니다');
+      });
     },
-    []
+    [account]
   );
 
   const exit = useCallback(() => {
