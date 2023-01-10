@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { styled } from '../../stitches';
 
 import TabNavItem from './TabNavItem';
@@ -38,6 +38,7 @@ const TabContainer = styled('div', {
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'space-around',
+  zIndex: 100000,
 });
 
 const TabButtonWrapper = styled('div', {
@@ -59,7 +60,17 @@ const TabButtonWrapper = styled('div', {
   },
 });
 
+const inactiveColor = '#C1B4A1';
+const activeColor = '#483F32';
+
+const pathnames = ['/', '/details', '/gallery', '/guestbook'];
+
 export default function TabNav() {
+  const { pathname } = useLocation();
+
+  const determineColor = (index: number) =>
+    pathname === pathnames[index] ? activeColor : inactiveColor;
+
   return (
     <RootContainer>
       <ContentContainer>
@@ -67,24 +78,24 @@ export default function TabNav() {
       </ContentContainer>
       <TabContainer>
         <TabButtonWrapper>
-          <Link to="/">
+          <Link to={pathnames[0]}>
             <TabNavItem>
-              <HomeIcon color="#C1B4A1" />
+              <HomeIcon color={determineColor(0)} />
             </TabNavItem>
           </Link>
-          <Link to="/details">
+          <Link to={pathnames[1]}>
             <TabNavItem>
-              <DetailIcon color="#C1B4A1" />
+              <DetailIcon color={determineColor(1)} />
             </TabNavItem>
           </Link>
-          <Link to="/gallery">
+          <Link to={pathnames[2]}>
             <TabNavItem>
-              <GalleryIcon color="#C1B4A1" />
+              <GalleryIcon color={determineColor(2)} />
             </TabNavItem>
           </Link>
-          <Link to="/guestbook">
+          <Link to={pathnames[3]}>
             <TabNavItem>
-              <GuestBookIcon color="#C1B4A1" />
+              <GuestBookIcon color={determineColor(3)} />
             </TabNavItem>
           </Link>
         </TabButtonWrapper>
