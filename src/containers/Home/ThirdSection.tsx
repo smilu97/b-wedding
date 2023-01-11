@@ -91,20 +91,20 @@ export default function HomeThirdSection() {
             accountKey="박현정"
           />
           <SubTitleWrap>
-            <SubTitleTxt>신랑측 혼주</SubTitleTxt>
+            <SubTitleTxt>신부측 혼주</SubTitleTxt>
             <UnderBar />
           </SubTitleWrap>
           <ContactItem
             positionTxt="아버지"
             nameTxt="박윤교"
-            phoneNumber="+82-10-6254-6927"
+            phoneNumber="+82-10-9035-8100"
             accountKey="박윤교"
           />
           <BlankSpace type={2} />
           <ContactItem
             positionTxt="어머니"
             nameTxt="고명옥"
-            phoneNumber="+82-10-6254-6927"
+            phoneNumber="+82-10-9984-8534"
             accountKey="고명옥"
           />
         </Column>
