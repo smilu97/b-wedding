@@ -96,6 +96,7 @@ export type BankAccountDetail = {
   role: string;
   nickname: string;
   bankName: string;
+  accountOwner: string;
   accountNumber: string;
   kakaoPayURL?: string;
 };
@@ -143,7 +144,7 @@ export default function Transfer() {
           </RowText>
         </Row>
         <Row>
-          <RowText>예금주 : {account.nickname}</RowText>
+          <RowText>예금주 : {account.accountOwner}</RowText>
         </Row>
       </AccountWrap>
       <ButtonWrap>
