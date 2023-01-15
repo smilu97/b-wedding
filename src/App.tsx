@@ -19,6 +19,7 @@ import {
 } from './containers';
 import Modal from './components/Modal';
 import DeleteComment from './containers/DeleteComment';
+import GalleryDetail from './containers/Gallery/GalleryDetail';
 
 const router = createHashRouter(
   createRoutesFromElements(
@@ -41,7 +42,9 @@ const router = createHashRouter(
           }
         />
       </Route>
-      <Route path="gallery" element={<Gallery />} />
+      <Route path="gallery" element={<Gallery />}>
+        <Route path=":imageIndex" element={<GalleryDetail />} />
+      </Route>
       <Route
         path="guestbook"
         element={

@@ -14,6 +14,7 @@ export type Comment = {
   message: string;
   willAttend: boolean;
   password: string;
+  attendSide: string;
 };
 
 async function hashPassword(plain: string) {

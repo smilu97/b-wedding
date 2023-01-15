@@ -109,6 +109,7 @@ const Radio = styled('input', {
 const Label = styled('label', {
   position: 'relative',
   top: '2px',
+  width: '4rem',
   fontSize: '0.875rem',
   fontWeight: '600',
   fontFamily: 'Nanum Square',
@@ -166,6 +167,7 @@ export default function Writing() {
         const message = extractFromForm(data, 'message');
         const password = extractFromForm(data, 'password');
         const willAttend = extractFromForm(data, 'willAttend');
+        const attendSide = extractFromForm(data, 'attendSide');
         comment = {
           id: -1,
           timestamp: Date.now(),
@@ -173,6 +175,7 @@ export default function Writing() {
           message,
           password,
           willAttend: willAttend === 'true',
+          attendSide,
         };
       } catch (error) {
         if (error instanceof Error) {
@@ -203,6 +206,27 @@ export default function Writing() {
           </InputWrap>
           <InputWrap>
             <InputTitle>참석여부</InputTitle>
+            <RadioContainer>
+              <RadioWrap>
+                <Radio
+                  type="radio"
+                  id="attendGroom"
+                  name="attendSide"
+                  value="groom"
+                />
+                <Label htmlFor="attendTrue">신랑측</Label>
+              </RadioWrap>
+              <RadioWrap>
+                <Radio
+                  type="radio"
+                  id="attendBride"
+                  name="attendSide"
+                  value="bride"
+                  defaultChecked
+                />
+                <Label htmlFor="attendFalse">신부측</Label>
+              </RadioWrap>
+            </RadioContainer>
             <RadioContainer>
               <RadioWrap>
                 <Radio

@@ -2,8 +2,10 @@ import { styled } from '../../stitches';
 
 import DeleteIcon from '../../components/icons/DeleteIcon';
 import { Comment } from '../../guestbook';
-import { useCallback } from 'react';
 import { Link } from 'react-router-dom';
+
+import GroomGuestImg from '../../assets/groom_guest.png';
+import BrideGuestImg from '../../assets/bride_guest.png';
 
 const MessageContainer = styled('div', {
   display: 'flex',
@@ -19,6 +21,9 @@ const UserImage = styled('div', {
   width: '3rem',
   height: '3rem',
   borderRadius: '1rem',
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
   backgroundColor: '$primary150',
 });
 
@@ -87,12 +92,14 @@ function formatTimestamp(timestamp: number, long = true) {
 }
 
 export default function MessageItem({ comment }: MessageItemProps) {
-  const { nickname, message, timestamp } = comment;
+  const { nickname, message, attendSide, timestamp } = comment;
   const dateString = formatTimestamp(timestamp, true);
+
+  const profileImage = attendSide === 'groom' ? GroomGuestImg : BrideGuestImg;
 
   return (
     <MessageContainer>
-      <UserImage />
+      <UserImage style={{ backgroundImage: `url(${profileImage})` }} />
       <UserInfoWrap>
         <InfoHeader>
           <GuestName>{nickname}</GuestName>
