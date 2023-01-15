@@ -1,11 +1,5 @@
 import { useEffect } from 'react';
-import {
-  Link,
-  useLocation,
-  useNavigate,
-  useNavigation,
-  useParams,
-} from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import CloseIcon from '../../components/icons/CloseIcon';
 import { styled } from '../../stitches';
 import { galleryImages } from './images';
