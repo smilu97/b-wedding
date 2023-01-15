@@ -131,6 +131,7 @@ const Button = styled('input', {
   fontFamily: 'Nanum Square',
   borderRadius: '1rem',
   border: 'none',
+  cursor: 'pointer',
   variants: {
     bg: {
       1: { backgroundColor: '$primary400', color: '#ffffff' },

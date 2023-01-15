@@ -61,6 +61,7 @@ const MapContainer = styled('div', {
 
 const Button = styled('button', {
   display: 'flex',
+  justifyContent: 'center',
   alignItems: 'center',
   padding: '1rem',
   width: '8.6rem',
@@ -68,6 +69,7 @@ const Button = styled('button', {
   borderRadius: '1.2rem',
   borderStyle: 'none',
   boxSizing: 'border-box',
+  cursor: 'pointer',
   variants: {
     type: {
       1: { backgroundColor: '#3EAB38', marginRight: '1.5rem' },
