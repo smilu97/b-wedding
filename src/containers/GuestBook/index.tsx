@@ -87,7 +87,7 @@ function usePaginate<T>(
 
 export default function GuestBook() {
   const [allComments] = useGuestBook();
-  const [comments, page, maxPage, goto] = usePaginate(allComments, 3);
+  const [comments, page, maxPage, goto] = usePaginate(allComments, 10);
 
   return (
     <RootContainer>
