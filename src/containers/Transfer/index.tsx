@@ -133,8 +133,7 @@ export default function Transfer() {
   return (
     <ContentContainer>
       <OwnerName>
-        {account.role}
-        {account.nickname}
+        {account.role} {account.nickname}
       </OwnerName>
       <AccountWrap>
         <AccountTitle>계좌번호</AccountTitle>

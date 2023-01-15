@@ -79,7 +79,7 @@ export default function HomeThirdSection() {
             positionTxt="어머니"
             nameTxt="최복하"
             phoneNumber="+82-10-5581-6927"
-            accountKey="김연석"
+            accountKey="최복하"
           />
         </Column>
         <BlankSpace type={1} />

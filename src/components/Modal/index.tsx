@@ -9,7 +9,7 @@ const RootContainer = styled('div', {
   top: 0,
   bottom: 0,
   backgroundColor: 'rgba(0, 0, 0, 0.6)',
-  zIndex: 5,
+  zIndex: 100001,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
