@@ -20,6 +20,7 @@ const ButtonBox = styled('div', {
   width: '2rem',
   height: '2rem',
   borderRadius: '0.75rem',
+  cursor: 'pointer',
   variants: {
     type: {
       1: { backgroundColor: '$primary400', '& > p': { color: '#ffffff' } },
