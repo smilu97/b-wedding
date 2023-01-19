@@ -74,7 +74,7 @@ function usePaginate<T>(
         setPage(dst);
       }
     },
-    [setPage]
+    [setPage, maxPage]
   );
 
   const rPage = Math.min(maxPage, Math.max(1, page));
